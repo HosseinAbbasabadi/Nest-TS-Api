@@ -4,9 +4,10 @@ export class Product {
     price: string;
     category: string;
 
-    constructor(_name: string, _price: string, _category: string) {
+    constructor(_id: string, _name: string, _price: string, _category: string) {
         this.guardAgainstInvalidName(_name);
         
+        this.id = _id;
         this.name = _name;
         this.price = _price;
         this.category = _category;
