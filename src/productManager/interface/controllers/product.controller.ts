@@ -6,16 +6,16 @@ import { AddProduct } from '../commands/addProduct';
 @Controller()
 export class ProductController {
   
-  constructor(@Inject('IAppService') private readonly appService: IProductCommandHandler) {}
+  constructor(@Inject('IAppService') private readonly productCommandHandler: IProductCommandHandler) {}
 
   @Get()
   getHello(): Product[] {
-    return this.appService.getProducts();
+    return this.productCommandHandler.getProducts();
   }
 
   @Post()
   addPost(@Body() command: AddProduct, @Res() res) {
-    this.appService.addProduct(command);
+    this.productCommandHandler.addProduct(command);
     res.status(HttpStatus.OK).send();
   }
 }
